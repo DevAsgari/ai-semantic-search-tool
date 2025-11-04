@@ -1,4 +1,4 @@
-# 🔍 AI Semantic Search Tool
+# AI Semantic Search Tool
 
 ```text
 🔍 AI Semantic Search Tool
@@ -21,7 +21,7 @@ It's a prototype showing how modern NLP can make search more accurate, flexible,
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```text
 semantic-search-app/
@@ -40,7 +40,7 @@ semantic-search-app/
 
 ---
 
-## ⚙️ Installation
+## Installation
 
 1. Clone the project:
 
@@ -75,7 +75,7 @@ pip install -r requirements.txt
 3. Add your text files to the `./data/` folder.
 The repo comes with a sample text.md you can replace or extend.
 
-## 🚀 Usage
+## Usage
 
 Run a search from the project root:
 
@@ -87,7 +87,7 @@ Type a query to get semantically relevant passages with an automatic AI-generate
 
 ---
 
-## 🧠 How the AI Works
+## How the AI Works
 
 This tool uses modern NLP and vector search to retrieve passages based on meaning rather than exact words. Here's how it works under the hood:
 
@@ -111,15 +111,11 @@ This tool uses modern NLP and vector search to retrieve passages based on meanin
 - **NLTK** for sentence tokenization
 - **BART** (facebook/bart-large-cnn) for AI summary generation
 
-## ✨ Features
+## Features
 - **Semantic search** - Find text based on meaning, not just keywords
 - **AI-generated summaries** - Automatic summaries of search results using BART (facebook/bart-large-cnn)
-- **Multilingual support** - Works with English, Danish, and other languages
 
-## ✨ Future Improvements
-- Add a web interface to make the tool easier to use
-
-## 🌍 Language Support
+## Language Support
 - Uses the **all-mpnet-base-v2** model, which supports English and multiple other languages
 - Produces 768-dimensional embeddings (higher quality than the previous all-MiniLM-L6-v2 model)
 - Model size: ~420MB (automatically downloaded on first run)
