@@ -10,7 +10,7 @@ file_path = "./data/text.md"
 
 with open(file_path, "r", encoding="utf-8") as f:
     content = f.read()
-    documents = sent_tokenize(content, language="danish")
+    documents = sent_tokenize(content, language="english")
 
 embedder = Embedder()
 doc_embeddings = embedder(documents)
