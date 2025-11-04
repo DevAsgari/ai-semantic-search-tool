@@ -1,5 +1,6 @@
 from embedder import Embedder
 from search import SemanticSearch
+from generator import SummaryGenerator
 from nltk.tokenize import sent_tokenize
 import nltk
 import sys
@@ -54,13 +55,17 @@ try:
     search_engine = SemanticSearch(doc_embeddings, documents)
     print("✓ Search engine ready")
 
+    print("Loading summary generator (this may take a moment)...")
+    summary_generator = SummaryGenerator()
+    print("✓ Summary generator ready")
+
 except Exception as e:
     print(f"❌ Error initializing search engine: {e}")
     print("This may be due to network issues downloading the model.")
     print("Please check your internet connection and try again.")
     sys.exit(1)
 
-print("\n🔍 Semantic Search App")
+print("\n🔍 Semantic Search & Summary Tool")
 print("=" * 50)
 
 while True:
@@ -80,6 +85,11 @@ while True:
         print("\nTop results:")
         for text, score in results:
             print(f"- {text[:100]}{'...' if len(text) > 100 else ''} (score: {score:.2f})")
+
+        # Generate summary automatically
+        passages = [text for text, score in results]
+        summary = summary_generator.generate_summary(query, passages)
+        print(f"\n📝 Summary: {summary}")
 
     except KeyboardInterrupt:
         print("\n\nInterrupted by user. Goodbye!")

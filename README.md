@@ -1,19 +1,23 @@
-# 🔍 Semantic Search App
+# 🔍 Semantic Search & Summary Tool
 
 ```text
-🔍 Semantic Search App
+🔍 Semantic Search & Summary Tool
 
 Enter query (or 'quit' to exit): phishing
 
 Top results:
-- One of the most common threats is phishing... (score: 0.89)
-- Security is not only about technology but also about people... (score: 0.72)
-- Cybersecurity is about protecting data... (score: 0.66)
+- Phishing emails, weak passwords, and careless handling of sensitive information continue to open doo... (score: 0.54)
+- Phishing emails can now be generated in perfect language, customized to individual targets by analyz... (score: 0.50)
+- Social engineering has grown more effective as attackers use artificial intelligence to craft convin... (score: 0.33)
+
+📝 Summary: Phishing emails can now be generated in perfect language, customized to individual targets.
+Social engineering has grown more effective as attackers use artificial intelligence to craft
+convincing messages and voice imitations.
 ```
 
-A prototype AI-powered search app that finds text based on meaning, not just keywords.  
-Built with **Sentence-BERT** and **FAISS**, it turns text into vector embeddings and finds the passages that are semantically closest to your query.  
-It’s a prototype showing how modern NLP can make search more accurate, flexible, and human-like. 
+A prototype AI-powered search tool that finds text based on meaning, not just keywords.
+Built with **Sentence-BERT**, **FAISS**, and **BART**, it turns text into vector embeddings, finds the passages that are semantically closest to your query, and generates concise summaries.
+It's a prototype showing how modern NLP can make search more accurate, flexible, and human-like. 
 
 ---
 
@@ -27,7 +31,8 @@ semantic-search-app/
 ├── src/                   # Source code
 │   ├── embedder.py        # Wrapper for Sentence-BERT embeddings
 │   ├── search.py          # Semantic search using FAISS
-│   └── main.py            # Simple CLI search engine
+│   ├── generator.py       # BART-based summary generator
+│   └── main.py            # CLI interface with search and summarization
 │
 ├── requirements.txt       # Python dependencies
 └── README.md              # Project description
@@ -46,9 +51,24 @@ cd SemanticSearchApp
 
 2. Set up a virtual environment and install dependencies:
 
+**Using venv:**
 ```bash
 python -m venv venv
+
+# On Windows (PowerShell):
+venv\Scripts\Activate.ps1
+# On Windows (CMD):
+venv\Scripts\activate.bat
+# On Linux/Mac:
 source venv/bin/activate
+
+pip install -r requirements.txt
+```
+
+**Using Conda:**
+```bash
+conda create -n semantic-search python=3.11
+conda activate semantic-search
 pip install -r requirements.txt
 ```
 
@@ -63,13 +83,13 @@ Run a search from the project root:
 python src/main.py
 ```
 
-Type a query, and the app will return the passages it finds most semantically relevant.
+Type a query to get semantically relevant passages with an automatic AI-generated summary.
 
 ---
 
 ## 🧠 How the AI Works
 
-This app uses modern NLP and vector search to retrieve passages based on meaning rather than exact words. Here's how it works under the hood:
+This tool uses modern NLP and vector search to retrieve passages based on meaning rather than exact words. Here's how it works under the hood:
 
 ### 1. Embeddings (Sentence-BERT)
 - Both the text passages and user queries are encoded into vectors using Sentence-BERT.
@@ -85,16 +105,22 @@ This app uses modern NLP and vector search to retrieve passages based on meaning
 - For example, `(score: 0.89)` means the model finds that result highly relevant to the query's meaning.
 
 ## 🛠️ Tech Stack
-- Python
-- HuggingFace Sentence-BERT
-- FAISS for similarity search
-- NLTK for text preprocessing
+- **Python 3.11+**
+- **Sentence-BERT** (all-mpnet-base-v2 model) for text embeddings
+- **FAISS** (IndexFlatIP) for fast vector similarity search
+- **NLTK** for sentence tokenization
+- **BART** (facebook/bart-large-cnn) for AI summary generation
+
+## ✨ Features
+- **Semantic search** - Find text based on meaning, not just keywords
+- **AI-generated summaries** - Automatic summaries of search results using BART (facebook/bart-large-cnn)
+- **Multilingual support** - Works with English, Danish, and other languages
 
 ## ✨ Future Improvements
-- Add a web interface to make the app easier to use
-- Combine semantic search with a generative LLM to create full, natural language answers based on the most relevant passages.  
-  Instead of just returning matching snippets, the model could generate helpful responses using the retrieved context.
+- Add a web interface to make the tool easier to use
 
 ## 🌍 Language Support
-- Uses the multilingual model all-MiniLM-L6-v2, supporting Danish, English, and many other languages.
+- Uses the **all-mpnet-base-v2** model, which supports English and multiple other languages
+- Produces 768-dimensional embeddings (higher quality than the previous all-MiniLM-L6-v2 model)
+- Model size: ~420MB (automatically downloaded on first run)
 

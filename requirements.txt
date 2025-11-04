@@ -2,3 +2,4 @@ sentence-transformers==5.1.1
 numpy==2.3.3
 nltk==3.9.1
 faiss-cpu==1.12.0
+transformers==4.46.3
