@@ -1,7 +1,7 @@
-# 🔍 Semantic Search & Summary Tool
+# 🔍 AI Semantic Search Tool
 
 ```text
-🔍 Semantic Search & Summary Tool
+🔍 AI Semantic Search Tool
 
 Enter query (or 'quit' to exit): phishing
 
