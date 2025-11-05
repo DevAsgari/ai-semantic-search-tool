@@ -104,7 +104,7 @@ This tool uses modern NLP and vector search to retrieve passages based on meanin
 - A score close to **1.0** means high semantic overlap; a score closer to **0.0** means weak or no similarity.
 - For example, `(score: 0.89)` means the model finds that result highly relevant to the query's meaning.
 
-## 🛠️ Tech Stack
+## Tech Stack
 - **Python 3.11+**
 - **Sentence-BERT** (all-mpnet-base-v2 model) for text embeddings
 - **FAISS** (IndexFlatIP) for fast vector similarity search
