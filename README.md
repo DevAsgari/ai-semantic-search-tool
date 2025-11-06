@@ -10,7 +10,8 @@ Top results:
 - Phishing emails can now be generated in perfect language, customized to individual targets by analyz... (score: 0.50)
 - Social engineering has grown more effective as attackers use artificial intelligence to craft convin... (score: 0.33)
 
-📝 Summary: Phishing emails can now be generated in perfect language, customized to individual targets. Social engineering has grown more effective as attackers use artificial intelligence to craft convincing messages and voice imitations.
+📝 Summary: Phishing emails can now be generated in perfect language, customized to individual targets. Social engineering 
+has grown more effective as attackers use artificial intelligence to craft convincing messages and voice imitations.
 ```
 
 A prototype AI-powered search tool that finds text based on meaning, not just keywords.
