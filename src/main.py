@@ -1,10 +1,10 @@
 from embedder import Embedder
 from search import SemanticSearch
 from generator import SummaryGenerator
+from file_loader import DocumentLoader
 from nltk.tokenize import sent_tokenize
 import nltk
 import sys
-import os
 
 # Download required NLTK data
 try:
@@ -14,31 +14,30 @@ except Exception as e:
     print(f"⚠️  Warning: Failed to download NLTK data: {e}")
     print("Continuing anyway - may fail if data is not already installed.")
 
-file_path = "./data/text.md"
-
-# Load and tokenize text corpus
+# Load all documents from data directory
 try:
-    if not os.path.exists(file_path):
-        print(f"❌ Error: File not found: {file_path}")
-        print(f"Please ensure the file exists or update the file_path variable.")
-        sys.exit(1)
+    print("Loading documents from data directory...")
+    loader = DocumentLoader(data_dir="./data")
+    content, files_loaded = loader.load_all_documents()
 
-    with open(file_path, "r", encoding="utf-8") as f:
-        content = f.read()
+    print(f"✓ Loaded {len(files_loaded)} file(s):")
+    for filename in files_loaded:
+        print(f"  • {filename}")
 
     if not content.strip():
-        print(f"❌ Error: File is empty: {file_path}")
+        print(f"❌ Error: All files are empty")
         sys.exit(1)
 
+    print("\nTokenizing documents into sentences...")
     documents = sent_tokenize(content, language="english")
-    print(f"✓ Loaded {len(documents)} documents from {file_path}")
+    print(f"✓ Created {len(documents)} searchable text segments")
 
-except UnicodeDecodeError:
-    print(f"❌ Error: Failed to decode {file_path} as UTF-8")
-    print("Try converting the file to UTF-8 encoding or update the encoding parameter.")
+except FileNotFoundError as e:
+    print(f"❌ Error: {e}")
+    print("Please ensure the ./data directory exists with at least one .txt, .md, or .pdf file.")
     sys.exit(1)
 except Exception as e:
-    print(f"❌ Error loading file: {e}")
+    print(f"❌ Error loading documents: {e}")
     sys.exit(1)
 
 # Initialize embedder and search engine

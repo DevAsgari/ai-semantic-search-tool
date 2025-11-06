@@ -3,15 +3,15 @@
 ```text
 🔍 AI Semantic Search Tool
 
-Enter query (or 'quit' to exit): digital
+Enter query (or 'quit' to exit): AI
 
 Top results:
-- The year 2025 has brought the digital world into a state of constant transformation. (score: 0.36)
-- Today’s digital battlefield is populated by a spectrum of adversaries, each with distinct motivation... (score: 0.36)
-- Energy grids, hospitals, transportation systems, and supply chains are now deeply digitized, which m... (score: 0.34)
+- The AI revolution is escalating this challenge. (score: 0.61)
+- This momentum signals an accelerating shift—AI adoption is not just expanding but becoming a corne... (score: 0.58)
+- By prioritizing security alongside AI advancements, businesses can not only stay ahead of the ever-... (score: 0.55)
 
-📝 Summary: The year 2025 has brought the digital world into a state of constant transformation. Energy grids, hospitals,
-transportation systems, and supply chains are now deeply digitized. This makes them more efficient but also far more exposed.
+📝 Summary: The rise of AI, particularly generative AI, presents both opportunities and challenges for security. 
+By prioritizing security alongside AI advancements, businesses can stay ahead of the ever-evolving threat landscape.
 ```
 
 A prototype AI-powered search tool that finds text based on meaning, not just keywords.
@@ -24,13 +24,15 @@ It's a prototype showing how modern NLP can make search more accurate, flexible,
 
 ```text
 semantic-search-app/
-├── data/                 # Text files for searching
-│   └── text.md
+├── data/                  # Documents for searching (supports .txt, .md, .pdf)
+│   ├── text.md
+│   └── World Economic Forum - Global Cybersecurity Outlook 2025.pdf
 │
 ├── src/                   # Source code
 │   ├── embedder.py        # Wrapper for Sentence-BERT embeddings
 │   ├── search.py          # Semantic search using FAISS
 │   ├── generator.py       # BART-based summary generator
+│   ├── file_loader.py     # Generic document loader for multiple formats
 │   └── main.py            # CLI interface with search and summarization
 │
 ├── requirements.txt       # Python dependencies
@@ -71,8 +73,9 @@ conda activate semantic-search
 pip install -r requirements.txt
 ```
 
-3. Add your text files to the `./data/` folder.
-The repo comes with a sample text.md you can replace or extend.
+3. Add your documents to the `./data/` folder.
+The tool automatically loads all supported files (.txt, .md, .pdf) from the data directory.
+The repo comes with sample files you can replace or extend.
 
 ## Usage
 
@@ -109,10 +112,13 @@ This tool uses modern NLP and vector search to retrieve passages based on meanin
 - **FAISS** (IndexFlatIP) for fast vector similarity search
 - **NLTK** for sentence tokenization
 - **BART** (facebook/bart-large-cnn) for AI summary generation
+- **PyPDF2** for PDF text extraction
 
 ## Features
 - **Semantic search** - Find text based on meaning, not just keywords
 - **AI-generated summaries** - Automatic summaries of search results using BART (facebook/bart-large-cnn)
+- **Multi-format support** - Automatically loads and indexes .txt, .md, and .pdf files from data directory
+- **Plug-and-play** - Just drop files in ./data/ folder and run - no configuration needed
 
 ## Language Support
 - Uses the **all-mpnet-base-v2** model, which supports English and multiple other languages

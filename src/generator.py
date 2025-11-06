@@ -19,7 +19,7 @@ class SummaryGenerator:
         # Generate summary with fixed parameters to avoid warnings
         result = self.pipe(
             input_text,
-            max_length=60,
+            max_length=100,
             min_length=20,
             do_sample=False,
             truncation=True,
