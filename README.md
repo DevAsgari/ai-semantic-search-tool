@@ -3,15 +3,16 @@
 ```text
 🔍 AI Semantic Search Tool
 
-Enter query (or 'quit' to exit): phishing
+Enter query (or 'quit' to exit): digital
 
 Top results:
-- Phishing emails, weak passwords, and careless handling of sensitive information continue to open doo... (score: 0.54)
-- Phishing emails can now be generated in perfect language, customized to individual targets by analyz... (score: 0.50)
-- Social engineering has grown more effective as attackers use artificial intelligence to craft convin... (score: 0.33)
+- The year 2025 has brought the digital world into a state of constant transformation. (score: 0.36)
+- Today’s digital battlefield is populated by a spectrum of adversaries, each with distinct motivation... (score: 0.36)
+- Energy grids, hospitals, transportation systems, and supply chains are now deeply digitized, which m... (score: 0.34)
 
-📝 Summary: Phishing emails can now be generated in perfect language, customized to individual targets. Social engineering 
-has grown more effective as attackers use artificial intelligence to craft convincing messages and voice imitations.
+📝 Summary: The year 2025 has brought the digital world into a state of constant transformation. Energy grids, hospitals,
+transportation systems, and supply chains are now deeply digitized. This makes them more efficient but also far more exposed.
+
 ```
 
 A prototype AI-powered search tool that finds text based on meaning, not just keywords.
