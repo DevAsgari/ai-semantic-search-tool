@@ -12,7 +12,6 @@ Top results:
 
 📝 Summary: The year 2025 has brought the digital world into a state of constant transformation. Energy grids, hospitals,
 transportation systems, and supply chains are now deeply digitized. This makes them more efficient but also far more exposed.
-
 ```
 
 A prototype AI-powered search tool that finds text based on meaning, not just keywords.
