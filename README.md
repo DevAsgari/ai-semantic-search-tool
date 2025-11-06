@@ -24,9 +24,7 @@ It's a prototype showing how modern NLP can make search more accurate, flexible,
 
 ```text
 semantic-search-app/
-├── data/                  # Documents for searching (supports .txt, .md, .pdf)
-│   ├── text.md
-│   └── World Economic Forum - Global Cybersecurity Outlook 2025.pdf
+├── data/                  # Documents for searching (supports .txt, .md, .pdf) 
 │
 ├── src/                   # Source code
 │   ├── embedder.py        # Wrapper for Sentence-BERT embeddings
