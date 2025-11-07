@@ -3,6 +3,7 @@ from search import SemanticSearch
 from generator import SummaryGenerator
 from file_loader import DocumentLoader
 from nltk.tokenize import sent_tokenize
+from typing import List
 import nltk
 import sys
 
@@ -86,8 +87,8 @@ while True:
             print(f"- {text[:100]}{'...' if len(text) > 100 else ''} (score: {score:.2f})")
 
         # Generate summary automatically
-        passages = [text for text, score in results]
-        summary = summary_generator.generate_summary(query, passages)
+        passages: List[str] = [text for text, score in results]
+        summary: str = summary_generator.generate_summary(query, passages)
         print(f"\n📝 Summary: {summary}")
 
     except KeyboardInterrupt:
